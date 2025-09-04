@@ -139,7 +139,7 @@ body {
     padding: 20px 0;
     width: 100%;
     overflow: hidden;
-    margin-top: auto; /* Empurra para o final da seção hero */
+    margin-top: auto;
 }
 
 .clients-container {
@@ -163,10 +163,10 @@ body {
 }
 
 
-/* --- Seção 2: PRODUTOS --- */
+/* PRODUTOS */
 .products-section-wrapper {
     padding: 5rem 0;
-    background-color: #f3f4f6; /* Cor de fundo da nova seção */
+    background-color: #f3f4f6;
 }
 
 .section-title {
@@ -210,7 +210,7 @@ body {
 }
 
 .collapsed-content img {
-    max-height: 20rem;
+    max-height: 22rem;
     object-fit: contain;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.25));
 }
@@ -239,12 +239,15 @@ body {
     font-size: 2.25rem;
     font-weight: bold;
     margin: 0 0 1rem 0;
+    text-align: start;
 }
 
 .expanded-text p {
     margin-bottom: 0.5rem;
     max-width: 500px;
     line-height: 1.6;
+    text-align: justify;
+    justify-content: start;
 }
 
 .expanded-image {
