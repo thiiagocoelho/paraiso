@@ -5,6 +5,10 @@
     --font-family: 'Montserrat', sans-serif;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -165,9 +169,11 @@ body {
 
 /* PRODUTOS */
 .products-section-wrapper {
-    padding: 5rem 0;
+    padding: 2.5rem 0 0;
     background-color: #f3f4f6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 .section-title {
     font-size: 2.5rem;
@@ -258,7 +264,7 @@ body {
 }
 
 .expanded-image img {
-    height: 20rem;
+    height: 19rem;
     object-fit: contain;
     filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.25));
 }
@@ -274,4 +280,77 @@ body {
     padding: 0.25rem 0.75rem;
     border-radius: 9999px;
     font-size: 0.875rem;
+}
+
+/* --- ESTILOS DA SEÇÃO SOBRE --- */
+.about-section-wrapper {
+    padding: 6rem 0;
+    background-color: var(--primary-color);
+}
+
+.about-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-video-wrapper {
+    position: relative;
+    padding-top: 65%;
+}
+
+.about-video-wrapper video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.about-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #4b5563; /* Cinza escuro */
+    margin-bottom: 1.5rem;
+}
+
+.about-values {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.value-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.value-item svg {
+    color: #f97316; /* Laranja da paleta de produtos */
+    flex-shrink: 0;
+}
+
+.value-item span {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #1f2937;
+}
+
+
+/* --- ANIMAÇÃO DE REVELAÇÃO --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
 }

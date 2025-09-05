@@ -29,8 +29,8 @@
                 <nav class="main-nav">
                     <ul>
                         <li><a href="#product-container">Produtos</a></li>
-                        <li><a href="#">Sobre</a></li>
-                        <li><a href="#">Clientes</a></li>
+                        <li><a href="#about-section">Sobre</a></li>
+                        <li><a href="#clients-section">Clientes</a></li>
                     </ul>
                 </nav>
                 <a href="#" class="btn-contato">Contato</a>
@@ -46,7 +46,7 @@
             </div>
         </main>
         
-        <footer class="clients-section">
+        <footer id="clients-section" class="clients-section">
             <div class="clients-container">
                 <div class="clients-logos">
                     <img src="media/logoClientes/armazem.png" alt="Logo Cliente 1">
@@ -60,10 +60,9 @@
 
     <section class="products-section-wrapper">
         <div class="container">
-            <h2 class="section-title">Nossos Produtos</h2>
+            <h2 id= "products-title" class="section-title">Nossos Produtos</h2>
         </div>
         <div id="product-container">
-            <!--Laranja -->
             <div class="product-panel bg-custom-orange">
                 <div class="collapsed-content">
                     <img src="media/produtos/laranja.png" alt="Suco de Laranja">
@@ -84,7 +83,6 @@
                 </div>
             </div>
 
-            <!-- Uva -->
             <div class="product-panel bg-custom-purple">
                 <div class="collapsed-content">
                     <img src="media/produtos/testeUVA.png" alt="Suco de Uva">
@@ -105,7 +103,6 @@
                 </div>
             </div>
 
-            <!-- Coco -->
             <div class="product-panel bg-custom-green">
                 <div class="collapsed-content">
                     <img src="media/produtos/coco (1).png" alt="Água de Coco">
@@ -126,7 +123,6 @@
                 </div>
             </div>
 
-            <!-- Chá Mate -->
             <div class="product-panel bg-custom-yellow">
                 <div class="collapsed-content">
                     <img src="media/produtos/mate.png" alt="Chá Mate Limão">
@@ -151,6 +147,39 @@
         </div>
     </section>
 
-    <script src="scripts/products.js"></script> 
+    <section id="about-section" class="about-section-wrapper">
+        <div class="container">
+            <div class="about-content-grid">
+                <div class="about-video-wrapper reveal">
+                    <video controls controlslist="nodownload noremoteplayback noplaybackrate foobar" playsinline autoplay muted loop>
+                        <source src="media/ssvid.net---Produtos-Paraíso-Ser-saudável-nunca-foi-tão-gostoso_v720P.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos em HTML5.
+                    </video>
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title reveal" style="text-align: left;">Nossa missão</h2>
+                    <p class="reveal">
+                        Nosso mix de produtos são criteriosamente selecionados e embalados com a mais moderna tecnologia para manter e assegurar a naturalidade e conservação de todos os nossos produtos sem a necessidade de conservadores químicos.
+                    </p>
+                    <p class="reveal">
+                        Nos orgulamos de sermos 100% naturais e Livre de Conservantes.
+                    </p>
+                    <div class="about-values">
+                        <div class="value-item reveal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                            <span>Qualidade Superior</span>
+                        </div>
+                        <div class="value-item reveal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            <span>100% Natural</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts/products.js"></script>
+    <script src="scripts/sobre.js"></script> 
 </body>
 </html>
