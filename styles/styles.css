@@ -7,6 +7,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 9rem; /* Espaço para o header fixo */
 }
 
 * {
@@ -169,7 +170,7 @@ body {
 
 /* PRODUTOS */
 .products-section-wrapper {
-    padding: 2.5rem 0 0;
+    padding: 3rem 0 0;
     background-color: #f3f4f6;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -290,7 +291,7 @@ body {
 
 .about-content-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 1fr;
     gap: 4rem;
     align-items: center;
 }
@@ -353,4 +354,174 @@ body {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* --- ESTILOS DA SEÇÃO DE CONTATO (ATUALIZADOS) --- */
+.contact-section-wrapper {
+    padding: 6rem 0;
+    background-color: #111827; /* Cor sólida escura para um visual mais limpo e focado */
+    color: var(--primary-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Wrapper para o título para melhor alinhamento do conjunto */
+.section-title-wrapper {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contact-section-wrapper .section-title {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 2.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+/* Linha decorativa abaixo do título */
+.contact-section-wrapper .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25rem;
+    height: 3px;
+    background: linear-gradient(to right, #f97316, #22c55e); /* Gradiente com cores da paleta */
+    border-radius: 2px;
+}
+
+/* Estilo para o novo subtítulo */
+.section-subtitle {
+    font-family: 'Inter', sans-serif;
+    color: #a1a1aa;
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+}
+
+.contact-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 650px; /* Limita a largura do formulário em telas grandes */
+    margin: 0 auto; /* Centraliza o formulário na página */
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.contact-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #a1a1aa;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1rem 0.75rem 2.5rem; /* Espaço para ícone */
+    border-radius: 12px;
+    border: none;
+    background-color: #1e1e24;
+    color: var(--primary-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    box-shadow: inset 0 2px 6px rgba(0,0,0,0.4);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-submit {
+    background-color: #f97316;
+    color: var(--primary-color);
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border: 1px solid #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+.social-buttons {
+    margin-top: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s, opacity 0.3s;
+    font-family: 'Inter', sans-serif;
+}
+
+.social-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.social-btn.whatsapp {
+    background-color: #25D366;
+}
+.social-btn.whatsapp:hover {
+    background-color: #128C7E;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+.social-btn.instagram:hover {
+    opacity: 0.9;
+}
+
+.contact-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-image-wrapper img {
+    max-width: 18rem;
+    filter: drop-shadow(0 20px 20px rgb(0 0 0 / 0.3));
+}
+
+/* Responsividade para a seção de contato */
+@media (max-width: 992px) {
+    .contact-grid {
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-image-wrapper {
+        order: -1;
+        margin-bottom: 3rem;
+        padding: 0 2rem;
+    }
+    .main-nav ul {
+        display: none;
+    }
 }
