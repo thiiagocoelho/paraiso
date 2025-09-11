@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     productsWrapper.style.backgroundColor = initialBgColor;
     productsWrapper.style.backdropFilter = 'blur(5px)'; // Adiciona o efeito de "vidro fosco"
     productsTitle.style.color = '#ffffff'; // Garante que o título seja branco e legível.
-
+    
     function activatePanel(panelToActivate) {
         const rgbColor = window.getComputedStyle(panelToActivate).backgroundColor;
         
