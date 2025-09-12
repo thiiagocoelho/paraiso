@@ -1,13 +1,19 @@
+/* CSS Reset e Variáveis */
 :root {
     --primary-color: #ffffff;
     --secondary-color: #333333;
     --background-color: rgba(0, 0, 0, 0.5); /* Overlay do vídeo */
-    --font-family: 'Montserrat', sans-serif;
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Inter', sans-serif;
+    --color-orange: #f97316;
+    --color-purple: #7e22ce;
+    --color-green: #22c55e;
+    --color-yellow: #eab308;
 }
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 9rem; /* Espaço para o header fixo */
+    scroll-padding-top: 6rem; 
 }
 
 * {
@@ -17,7 +23,7 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: var(--font-primary);
     background-color: #1a1a1a;
     overflow-x: hidden;
 }
@@ -28,6 +34,7 @@ body {
     margin: 0 auto;
 }
 
+/* --- Seção Hero --- */
 .hero-wrapper {
     position: relative;
     color: var(--primary-color);
@@ -62,11 +69,12 @@ body {
     object-fit: cover;
 }
 
+/* --- Cabeçalho e Navegação --- */
 .site-header {
     padding: 20px 0;
     position: absolute;
     width: 100%;
-    z-index: 10;
+    z-index: 100;
 }
 
 .site-header .container {
@@ -77,6 +85,13 @@ body {
 
 .logo img {
     max-height: 7rem;
+    transition: max-height 0.3s ease;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .main-nav ul {
@@ -112,6 +127,58 @@ body {
     background-color: #f0f0f0;
 }
 
+/* --- Menu Hambúrguer (Mobile) --- */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 28px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 28px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before {
+    transform: translateY(-8px);
+}
+
+.hamburger::after {
+    transform: translateY(8px);
+}
+
+.nav-toggle.active .hamburger {
+    background: transparent;
+}
+
+.nav-toggle.active .hamburger::before {
+    transform: rotate(45deg);
+}
+
+.nav-toggle.active .hamburger::after {
+    transform: rotate(-45deg);
+}
+
+/* --- Conteúdo Hero --- */
 .hero-section {
     flex-grow: 1;
     display: flex;
@@ -136,6 +203,7 @@ body {
     text-shadow: 1px 1px 6px rgba(0,0,0,0.7);
 }
 
+/* --- Seção Clientes --- */
 .clients-section {
     background-color: rgba(34, 34, 34, 0.8);
     backdrop-filter: blur(5px);
@@ -152,7 +220,6 @@ body {
     width: 100%;
 }
 
-
 .clients-logos {
     display: flex;
     flex-shrink: 0;
@@ -163,16 +230,17 @@ body {
 .clients-logos img {
     max-height: 3.5rem;
     width: auto;
+    opacity: 0.7;
+    transition: filter 0.3s, opacity 0.3s;
+    
 }
 
-
-/* PRODUTOS */
+/* --- Seção Produtos --- */
 .products-section-wrapper {
     padding: 3rem 0 0;
     background-color: #f3f4f6;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.5s ease;
 }
-
 
 .section-title {
     font-size: 2.5rem;
@@ -181,7 +249,7 @@ body {
     margin-bottom: 3rem;
     color: #1f2937;
     letter-spacing: -0.025em;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 #product-container {
@@ -192,26 +260,34 @@ body {
 }
 
 .product-panel {
-    flex-grow: 1;
+    flex-grow: 10;
     position: relative;
     padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: flex-grow 0.7s ease;
+    transition: flex-grow 0.7s ease, height 0.7s ease;
     cursor: pointer;
 }
 
-.bg-custom-orange { background-color: #f97316; }
-.bg-custom-purple { background-color: #7e22ce; }
-.bg-custom-green  { background-color: #22c55e; }
-.bg-custom-yellow { background-color: #eab308; }
+.bg-custom-orange { background-color: var(--color-orange); }
+.bg-custom-purple { background-color: var(--color-purple); }
+.bg-custom-green  { background-color: var(--color-green); }
+.bg-custom-yellow { background-color: var(--color-yellow); }
+
+.product-panel.active {
+    flex-grow: 40;
+}
 
 .collapsed-content {
     text-align: center;
-    transition: opacity 0.2s ease-in-out;
+    transition: opacity 0.5s ease;
     z-index: 1;
+}
+.product-panel.active .collapsed-content {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .collapsed-content img {
@@ -238,6 +314,12 @@ body {
     gap: 1.5rem;
     z-index: 2;
     font-family: 'Inter', sans-serif;
+}
+
+.product-panel.active .expanded-content {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
 }
 
 .expanded-text h3 {
@@ -281,7 +363,7 @@ body {
     font-size: 0.875rem;
 }
 
-/* --- ESTILOS DA SEÇÃO SOBRE --- */
+/* --- Seção Sobre --- */
 .about-section-wrapper {
     padding: 6rem 0;
     background-color: var(--primary-color);
@@ -296,7 +378,10 @@ body {
 
 .about-video-wrapper {
     position: relative;
-    padding-top: 65%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .about-video-wrapper video {
@@ -305,14 +390,14 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .about-text p {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
     font-size: 1rem;
     line-height: 1.7;
-    color: #4b5563; /* Cinza escuro */
+    color: #4b5563;
     margin-bottom: 1.5rem;
 }
 
@@ -330,19 +415,18 @@ body {
 }
 
 .value-item svg {
-    color: #f97316; /* Laranja da paleta de produtos */
+    color: var(--color-orange);
     flex-shrink: 0;
 }
 
 .value-item span {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
     font-weight: 600;
     font-size: 1.1rem;
     color: #1f2937;
 }
 
-
-/* --- ANIMAÇÃO DE REVELAÇÃO --- */
+/* --- Animação de Revelação --- */
 .reveal {
     opacity: 0;
     transform: translateY(30px);
@@ -354,6 +438,7 @@ body {
     transform: translateY(0);
 }
 
+/* --- Seção Contato --- */
 .contact-section-wrapper {
     padding: 6rem 0;
     background-color: #111827;
@@ -385,12 +470,12 @@ body {
     transform: translateX(-50%);
     width: 25rem;
     height: 3px;
-    background: linear-gradient(to right, #f97316, #22c55e);
+    background: linear-gradient(to right, var(--color-orange), var(--color-green));
     border-radius: 2px;
 }
 
 .section-subtitle {
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
     color: #a1a1aa;
     font-size: 1.1rem;
     max-width: 500px;
@@ -401,11 +486,7 @@ body {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
     gap: 4rem;
-    align-items: center;
-}
-
-.contact-form-wrapper {
-    max-width: 100%;
+    align-items: flex-start;
 }
 
 .contact-form .form-group {
@@ -417,7 +498,7 @@ body {
     margin-bottom: 0.5rem;
     font-weight: 600;
     color: #d1d5db;
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
 }
 
 .input-with-icon {
@@ -446,7 +527,7 @@ body {
     border: 1px solid #374151;
     background-color: #1f2937;
     color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-secondary);
     font-size: 1rem;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
@@ -459,12 +540,12 @@ body {
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
-    border-color: #f97316;
+    border-color: var(--color-orange);
     box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
 }
 
 .btn-submit {
-    background-color: #f97316;
+    background-color: var(--color-orange);
     color: var(--primary-color);
     padding: 0.85rem 2.5rem;
     border: none;
@@ -473,20 +554,13 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
-    font-family: 'Inter', sans-serif;
-    align-self: flex-start; /* Alinha o botão à esquerda */
-    width: auto; /* Largura automática */
+    font-family: var(--font-secondary);
+    width: auto;
 }
 
 .btn-submit:hover {
     background-color: #ea580c;
     transform: translateY(-2px);
-}
-
-/* Estilos para o novo bloco de informações */
-.contact-info-wrapper {
-    color: #d1d5db;
-    font-family: 'Inter', sans-serif;
 }
 
 .contact-info-wrapper h3 {
@@ -518,7 +592,7 @@ body {
 }
 
 .contact-list li svg {
-    color: #f97316;
+    color: var(--color-orange);
     flex-shrink: 0;
 }
 
@@ -543,4 +617,255 @@ body {
 .social-links a:hover {
     color: #ffffff;
     transform: scale(1.1);
+}
+
+/* --- Media Queries para Responsividade --- */
+
+/* Tablets (1024px) */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 56px;
+    }
+
+    .nav-wrapper {
+        gap: 25px;
+    }
+
+    #product-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .product-panel {
+        height: 250px;
+        flex-grow: 1 !important; /* Impede que flex-grow do desktop afete aqui */
+    }
+
+    .product-panel.active {
+        height: 450px; 
+    }
+
+    .collapsed-content img {
+        max-height: 12rem;
+    }
+
+    .expanded-content {
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-around;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .expanded-text {
+        flex-basis: 55%;
+    }
+
+    .expanded-image {
+        flex-basis: 40%;
+    }
+    
+    .expanded-image img {
+        height: 14rem;
+    }
+
+    .expanded-text h3 {
+        font-size: 1.75rem;
+        text-align: left;
+    }
+    .info-tags, .expanded-text p {
+         text-align: left;
+    }
+
+    .about-content-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .about-text {
+        text-align: center;
+    }
+    .about-text .section-title {
+        text-align: center;
+    }
+    .about-values {
+        align-items: center;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+    }
+}
+
+/* Celulares (768px) */
+@media (max-width: 768px) {
+    .logo img {
+        max-height: 5rem;
+    }
+    
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-wrapper {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(20, 20, 20, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .nav-wrapper.active {
+        transform: translateX(0);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .main-nav a {
+        font-size: 24px;
+    }
+
+    .nav-wrapper .btn-contato {
+        display: block;
+        margin-top: 40px;
+    }
+    
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .hero-content {
+        text-align: center;
+        padding-top: 150px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+        max-width: 100%;
+    }
+
+    .clients-logos {
+        gap: 30px;
+    }
+
+    .clients-logos img {
+        height: 3rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .product-panel {
+        height: 250px;
+    }
+
+    .product-panel.active {
+        height: 500px;
+    }
+    
+    .expanded-content {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 2rem;
+    }
+    
+    .expanded-text {
+        order: 2;
+    }
+    .expanded-image {
+        order: 1;
+    }
+    .expanded-image img {
+      height: 12rem;
+    }
+    .expanded-text h3 {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+    .expanded-text p {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .info-tags {
+        justify-content: center;
+    }
+    
+    .contact-section-wrapper .section-title::after {
+        width: 18rem;
+    }
+
+    .section-title-reveal.visible h2 {
+        text-align: left;
+    }
+}
+
+/* --- Estilos para o Indicador de Clique Mobile --- */
+
+.mobile-click-indicator {
+    display: none; /* Oculto por padrão (em desktops) */
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+.mobile-click-indicator svg {
+    color: white;
+    width: 28px;
+    height: 28px;
+    transition: transform 0.4s ease;
+}
+
+/* Transforma o ícone '+' em 'x' quando o painel está ativo */
+.product-panel.active .mobile-click-indicator svg {
+    transform: rotate(225deg);
+}
+
+/* Media Query para exibir o indicador apenas em telas de tablet e mobile */
+@media (max-width: 1024px) {
+    .mobile-click-indicator {
+        display: flex; /* Mostra o ícone em telas menores */
+    }
+
+    /* Adiciona uma animação sutil para chamar a atenção */
+    .mobile-click-indicator {
+        animation: pulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+        50% {
+            transform: scale(1.1);
+            opacity: 0.8;
+        }
+    }
 }
