@@ -71,7 +71,6 @@ body {
 
 /* --- Cabeçalho e Navegação --- */
 .site-header {
-    padding: 20px 0;
     position: absolute;
     width: 100%;
     z-index: 100;
@@ -868,4 +867,168 @@ body {
             opacity: 0.8;
         }
     }
+}
+
+/* --- Estilos de Acessibilidade Corrigidos --- */
+
+/* Estilos para o modo de alto contraste */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+/* Itens que devem ter fundo preto e borda branca em alto contraste */
+body.high-contrast .site-header,
+body.high-contrast .clients-section,
+body.high-contrast .products-section-wrapper,
+body.high-contrast .about-section-wrapper,
+body.high-contrast .contact-section-wrapper,
+body.high-contrast .product-panel,
+body.high-contrast .btn-contato,
+body.high-contrast .contact-form input,
+body.high-contrast .contact-form textarea {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 1px solid #fff;
+}
+
+/* Garante que textos genéricos fiquem brancos */
+body.high-contrast a,
+body.high-contrast h1, body.high-contrast h2, body.high-contrast h3,
+body.high-contrast p, body.high-contrast span {
+    color: #fff !important;
+}
+
+/* Exceções para manter a funcionalidade e visibilidade */
+
+/* Corrige o painel de acessibilidade para que ele não suma */
+body.high-contrast .accessibility-panel,
+body.high-contrast .accessibility-panel h3,
+body.high-contrast .accessibility-panel p {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+}
+
+body.high-contrast .accessibility-panel button {
+	background-color: #f3f4f6 !important;
+	color: #000000 !important;
+	border-color: #000000 !important;
+}
+
+
+/* Mantém o vídeo de fundo visível */
+body.high-contrast .video-background,
+body.high-contrast .hero-wrapper {
+    background-color: transparent !important;
+    border: none !important;
+}
+
+body.high-contrast .btn-contato:hover {
+    background-color: #333 !important;
+}
+
+/* Estilos para as fontes acessíveis */
+body.font-arial {
+    font-family: Arial, sans-serif !important;
+}
+
+body.font-serif {
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+/* Container do botão de acessibilidade */
+.accessibility-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1010;
+}
+
+/* Botão flutuante de acessibilidade */
+.accessibility-button {
+    background-color: var(--color-orange);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.accessibility-button:hover {
+    transform: scale(1.1);
+}
+
+/* Painel de opções de acessibilidade */
+.accessibility-panel {
+    position: absolute;
+    bottom: 75px; /* Posição acima do botão */
+    right: 0;
+    width: 280px;
+    background-color: #ffffff;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    padding: 20px;
+    z-index: 1009;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.accessibility-panel.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.accessibility-panel h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #1f2937;
+}
+
+.accessibility-panel .option-group {
+    margin-bottom: 15px;
+}
+
+.accessibility-panel .option-group p {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: #4b5563;
+}
+
+.accessibility-panel button {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    color: #374151;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 8px;
+    transition: background-color 0.2s;
+}
+
+.accessibility-panel button:hover {
+    background-color: #e5e7eb;
+}
+
+.accessibility-panel .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 0;
+    line-height: 1;
 }
