@@ -84,7 +84,7 @@ body {
 }
 
 .logo img {
-    max-height: 7rem;
+    max-height: 8rem;
     transition: max-height 0.3s ease;
 }
 
