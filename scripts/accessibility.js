@@ -16,7 +16,6 @@ export function initAccessibility() {
         accessibilityPanel.classList.remove('active');
     });
 
-    // Fecha o painel se clicar fora dele
     document.addEventListener('click', (e) => {
         if (!accessibilityPanel.contains(e.target) && accessibilityPanel.classList.contains('active')) {
             accessibilityPanel.classList.remove('active');

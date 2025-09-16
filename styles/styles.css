@@ -849,7 +849,7 @@ body {
 /* Media Query para exibir o indicador apenas em telas de tablet e mobile */
 @media (max-width: 1024px) {
     .mobile-click-indicator {
-        display: flex; /* Mostra o ícone em telas menores */
+        display: flex;
     }
 
     /* Adiciona uma animação sutil para chamar a atenção */
